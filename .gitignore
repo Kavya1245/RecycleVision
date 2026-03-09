@@ -1,0 +1,9 @@
+recycle_env/
+__pycache__/
+*.pyc
+*.h5
+*.pkl
+.ipynb_checkpoints/
+data/raw/
+data/processed/
+*.DS_Store
