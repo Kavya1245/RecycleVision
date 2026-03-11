@@ -5,5 +5,4 @@ __pycache__/
 *.pkl
 .ipynb_checkpoints/
 data/raw/
-data/processed/
 *.DS_Store
