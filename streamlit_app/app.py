@@ -20,7 +20,11 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────
 # CONSTANTS
 # ─────────────────────────────────────────────────────────────────
-MODEL_PATH = r"D:\RecycleVision\models\resnet50_model.h5"
+import gdown
+import os
+
+MODEL_PATH    = "resnet50_model.h5"
+DRIVE_FILE_ID = "1U20r0swrxnIUMqlegGHSLL27FgzwJuM6"
 PHOTO_PATH = r"D:\RecycleVision\streamlit_app\kavya_photo.jpeg"
 IMG_SIZE   = (224, 224)
 CLASSES    = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
@@ -251,8 +255,13 @@ section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:hover {
 @st.cache_resource(show_spinner=False)
 def load_model():
     try:
+        if not os.path.exists(MODEL_PATH):
+            with st.spinner("⬇️ Downloading model... Please wait (102 MB)..."):
+                url = f"https://drive.google.com/uc?id={1U20r0swrxnIUMqlegGHSLL27FgzwJuM6}"
+                gdown.download(url, MODEL_PATH, quiet=False)
         return tf.keras.models.load_model(MODEL_PATH)
-    except:
+    except Exception as e:
+        st.error(f"❌ Failed to load model: {e}")
         return None
 
 def img_to_b64(path):
