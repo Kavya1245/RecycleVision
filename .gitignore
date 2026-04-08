@@ -6,3 +6,6 @@ __pycache__/
 .ipynb_checkpoints/
 data/raw/
 *.DS_Store
+*.onnx
+models/resnet50_saved/
+convert_model.py

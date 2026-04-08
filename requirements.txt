@@ -1,5 +1,5 @@
-tensorflow-cpu
 streamlit
+onnxruntime
 gdown
 numpy
 pandas
@@ -8,4 +8,3 @@ seaborn
 scikit-learn
 Pillow
 opencv-python-headless
-protobuf
